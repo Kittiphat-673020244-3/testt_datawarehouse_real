@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: northwind_dw_duckdb
+    schema: main
+    description: "Raw flat files queried directly from the local workspace folder"
+    meta:
+      # กำหนด path หลักให้อ่านจาก datasets/
+      external_location: 'datasets/{name}.csv'
+
+    tables:
+      # --- ไฟล์ CSV ---
+      - name: customer
+      - name: employee_privileges
+      - name: employees
+      - name: inventory_transaction_types
+      - name: inventory_transactions
+      - name: invoices
+      - name: order_details_status
+      - name: order_details
+      - name: orders_status
+      - name: orders_tax_status
+      - name: orders
+      - name: purchase_order_details
+
+      # --- ไฟล์ XLSX (ต้องระบุ external_location ทับลงไป) ---
+      - name: privileges
+        meta:
+          external_location: 'datasets/privileges.xlsx'
+
+      - name: products
+        meta:
+          external_location: 'datasets/products.xlsx'
+
+      - name: purchase_order_status
+        meta:
+          external_location: 'datasets/purchase_order_status.xlsx'
+
+      - name: purchase_orders
+        meta:
+          external_location: 'datasets/purchase_orders.xlsx'
+
+      - name: sales_reports
+        meta:
+          external_location: 'datasets/sales_reports.xlsx'
+
+      - name: shippers
+        meta:
+          external_location: 'datasets/shippers.xlsx'
+
+      - name: strings
+        meta:
+          external_location: 'datasets/strings.xlsx'
+      - name: suppliers
+        meta:
+          external_location: 'datasets/suppliers.xlsx'
